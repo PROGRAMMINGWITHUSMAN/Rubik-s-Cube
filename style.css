@@ -1,0 +1,105 @@
+:root{
+    --cube-width: 300px;
+    --translateZ: 150px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: sans-serif;
+    background: #000;
+}
+header h1{
+    margin: 0;
+    font-size: 100px;
+}
+header{
+    color: #eee;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+}
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+header .sub-heading{
+    font-size: 24px;
+    margin: 0;
+}
+.cube-container{
+    perspective: 1000px;
+}
+.cube-container .cube{
+    width:  var(--cube-width);
+    height:  var(--cube-width);
+    transform-style: preserve-3d;
+}
+.cube-container .cube-face{
+    width:  var(--cube-width);
+    height:  var(--cube-width);
+    position: absolute;
+    font-size: 30px;
+    background: yellow;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cube-container .front{
+    background-color: #d63946;
+    transform: translateZ(var(--translateZ));
+}
+.cube-container .back{
+    transform: rotateY(180deg) translateZ(var(--translateZ));
+    background-color: #06d6a0;
+}
+.cube-container .left{
+    background-color: #023047;
+    color: #fff;
+    transform: rotateY(-90deg) translateZ(var(--translateZ));
+}
+.cube-container .right{
+    background-color: #3d348b;
+    color: #fff;
+    transform: rotateY(90deg) translateZ(var(--translateZ));
+}
+.cube-container .top{
+    background-color: #a8dadc;
+    transform: rotateX(90deg) translateZ(var(--translateZ));
+}
+.cube-container .bottom{
+    background-color: #ffd166;
+    transform: rotateX(-90deg) translateZ(var(--translateZ));
+}
+img{
+    width: 300px;
+    height: 300px;
+}
+@media (max-width: 700px) {
+    :root {
+        --cube-width: 200px;
+        --translateZ: 100px;
+    }
+    img{
+        height: 200px;
+        width: 200px;
+    }
+    .left{
+        display: none;
+    }
+    body {
+        overflow: hidden; /* Ensure no scrollbars appear */
+    }
+
+    header h1 {
+        font-size: 24px; /* Reduce the heading size for smaller screens */
+    }
+
+    .cube-container {
+        margin: 0 auto; /* Center the cube container */
+        padding: 0;
+    }
+}
